@@ -1,25 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>ShopEase - Online Store</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-Commerce SPA</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<header class="navbar">
-    <h2 class="logo">🛍 ShopEase</h2>
-    <input type="text" placeholder="Search products..." class="search-bar">
-    <div class="cart-icon">
-        🛒 Cart (<span id="cart-count">0</span>)
+<div class="outer-container">
+    <!-- Top Navigation -->
+    <div class="top-nav">
+        <button onclick="showSection('search')">Search</button>
+        <button onclick="showSection('products')">Products</button>
+        <button onclick="showSection('cart')">Cart (<span id="cart-count">0</span>)</button>
+        <button onclick="showSection('payment')">Payment</button>
     </div>
-</header>
 
-<main id="product-container"></main>
+    <!-- Sections -->
+    <div id="search" class="section">
+        <h2>Search Products</h2>
+        <input type="text" id="search-input" placeholder="Search by product name">
+        <button onclick="performSearch()">Search</button>
+        <div id="search-results" class="products"></div>
+    </div>
 
-<footer>
-    <p>© 2026 ShopEase | Real E-Commerce UI</p>
-</footer>
+    <div id="products" class="section">
+        <h2>Products</h2>
+        <div id="product-container" class="products"></div>
+    </div>
+
+    <div id="cart" class="section">
+        <h2>Your Cart</h2>
+        <div id="cart-container"></div>
+        <p>Total: ₹<span id="total-price">0</span></p>
+    </div>
+
+    <div id="payment" class="section">
+        <h2>Payment Details</h2>
+        <div id="payment-container">
+            <button onclick="checkout()">Proceed to Pay</button>
+        </div>
+    </div>
+</div>
 
 <script src="script.js"></script>
 </body>
